@@ -1,18 +1,20 @@
 import { UserService } from './../shared/user.service';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-inactive-users',
   templateUrl: './inactive-users.component.html',
   styleUrls: ['./inactive-users.component.css']
 })
-export class InactiveUsersComponent {
+export class InactiveUsersComponent implements OnInit {
+  inactiveUsers
+  constructor(public userService: UserService) { }
+  ngOnInit() {
 
-  @Input() inactiveUser: string
-  constructor(private userService: UserService) { }
+    this.inactiveUsers = this.userService.inactiveUsers
+  }
 
-
-  SetToActive() {
-    this.userService.SetToActive(this.inactiveUser);
+  SetToActive(inactiveUser) {
+    this.userService.SetToActive(inactiveUser);
   }
 }

@@ -1,5 +1,10 @@
-
-    <div class="card">
-      <div class="card-body">{{inactiveUser}} | <a style="text-decoration: none;" href="#" (click)="SetToActive()">Set to Active</a></div>
+<div class="row" *ngIf="inactiveUsers.length >0">
+  <div class="col-md-8">
+    <h2 style="text-decoration-line: underline;">Inactive Users</h2>
+    <div class="card" *ngFor="let inactiveUser of inactiveUsers">
+      <div class="card-body">{{inactiveUser}} | <a style="text-decoration: none;" href="#"
+          (click)="SetToActive(inactiveUser)">Set to Active</a></div>
     </div>
- 
+
+  </div>
+</div>

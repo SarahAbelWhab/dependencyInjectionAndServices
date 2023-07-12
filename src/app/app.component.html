@@ -1,16 +1,14 @@
 <div class="container">
-  <div class="row" *ngIf="activeUsers.length >0">
-    <div class="col-md-8">
-      <h2 style="text-decoration-line: underline;">Active Users</h2>
-      <app-active-users  *ngFor="let activeUser of activeUsers" [activeUser]="activeUser" (SetInactive)="SetToInactive($event)"></app-active-users>
-    </div>
+  <div class="row">
+    <p>Set to Active: {{counterService.setToActiveCount}}</p>
+    <p>Set to Inactive: {{counterService.setToInactiveCount}}</p>
   </div>
+  
+      <app-active-users></app-active-users>
+   
   <br>
   <br>
-  <div class="row"  *ngIf="inactiveUsers.length >0">
-    <div class="col-md-8">
-      <h2 style="text-decoration-line: underline;">Inactive Users</h2>
-      <app-inactive-users *ngFor="let inactiveUser of inactiveUsers" [inactiveUser]="inactiveUser" (SetActive)="SetToActive($event)"></app-inactive-users>
-    </div>
-  </div>
+
+      <app-inactive-users></app-inactive-users>
+  
 </div>
